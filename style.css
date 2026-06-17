@@ -1,6 +1,6 @@
 :root {
     --flap-color: #bbb9b9;
-    --background-color: rgb(43, 47, 48);
+    --background-color: rgba(25, 10, 50, 5);
 }
 
 /* Apply border-box to ALL elements, not just html */
@@ -24,7 +24,7 @@ body {
     overflow-x: hidden; /* if edges going out of viewing, let them without creating a scroll bar */
     display: flex;
     justify-content: center;
-    perspective: 20cm; /* perspective for 3D transforms, without a camera not even "line-wide px" will show up */
+    perspective: 40cm; /* perspective for 3D transforms, without a camera not even "line-wide px" will show up */
     background-color: var(--background-color);
 }
 
@@ -45,6 +45,19 @@ body {
     /* right: 54%; */
     z-index: 3;
 }
+#wip-icon {
+    height: auto;
+    width: auto;
+    margin: 70px auto;
+
+    position: fixed;
+
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    background-image: linear-gradient(rgba(50, 20, 100, 5), rgba(50, 10, 100, 5));
+    color: transparent;
+    background-clip: text;
+}
 
 #paper-cocas {
     height: clamp(200px, 70vmin, 400px); /* viewport relative units to get minimum edge */
@@ -61,7 +74,7 @@ body {
     top: 20vh;
     z-index: 1;
     transform-style: preserve-3d;
-    transform: rotateX(0deg) rotateZ(0deg);
+    transform: rotateX(3deg) rotateZ(0deg);
 }
 
 /* Add this class to #paper-cocas to inspect it */
@@ -396,7 +409,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: "Roboto Mono", monospace;
-    font-size: 25px;
+    font-size: clamp(13px, 5.2vmin, 29px);
     color: #ffffff;
     text-shadow: -1px -1px 0 #000,  
                  1px -1px 0 #000,
@@ -434,8 +447,6 @@ body {
 .inner.profile .flap-link {
     transform: translate(15%, 35%);
 }
-
-
 
 
 /* Cocas is closed */
@@ -512,19 +523,14 @@ body {
     left: 50%;
     transform: translateX(-50%); /* Center the page horizontally */
     z-index: 2; /* Ensures it sits HIGH above the #paper-cocas (which is z-index: 1) */
-
-    background-color: rgba(247, 247, 247, 0.918); 
-    /* Tip: Change the above to rgba(43, 47, 48, 0.95) if you want the Cocas slightly visible underneath! */
-    color: rgb(0, 0, 0); 
-    border-radius: 3px;
     
     /* 3. Center the text inside the page */
     display: flex;
-    flex-wrap: wrap;
-    gap: 2px;
-    top: 10%;
-    justify-content: center;
-    align-items: top;
+    flex-direction: column;
+    gap: 0px;
+    top: 14.5%;
+    justify-content: flex-start;
+    align-items: center;
     
     /* 4. The Animation Engine */
     visibility: visible;
@@ -538,6 +544,28 @@ body {
     opacity: 0; /* Makes it invisible */
     pointer-events: none; /* Prevents it from blocking clicks to the Cocas underneath */
     visibility: hidden; /* Extra safety so screen readers ignore it when closed */
+    
+}
+
+.page-body {
+    width: 35rem;
+    aspect-ratio: 3/1.65;
+    clip-path: polygon(5% 0%, 95% 0%, 97% 10%, 100% 15%, 100% 85%, 97% 90%, 95% 100%, 5% 100%, 3% 90%, 0% 85%, 0% 15%, 3% 10%);
+    
+    background-color: rgba(247, 247, 247, 0.918); 
+    /* Tip: Change the above to rgba(43, 47, 48, 0.95) if you want the Cocas slightly visible underneath! */
+    color: rgb(0, 0, 0); 
+    border-radius: 3px;
+}
+
+h1 {
+    font-family: "Roboto Mono", monospace;
+    font-size: clamp(13px, 5.2vmin, 29px);
+    color: #ffffff;
+    text-shadow: -2px -2px 0 #000,  
+                 2px -2px 0 #000,
+                 -2px 2px 0 #000,
+                 2px 2px 0 #000; /* black outline for readability */
 }
 
 .puzzle-piece {
