@@ -26,6 +26,8 @@ body {
     justify-content: center;
     perspective: 40cm; /* perspective for 3D transforms, without a camera not even "line-wide px" will show up */
     background-color: var(--background-color);
+
+    font-family: "Roboto Mono", monospace;
 }
 
 #nav-cocas {
@@ -551,6 +553,7 @@ body {
     width: 35rem;
     aspect-ratio: 3/1.65;
     clip-path: polygon(5% 0%, 95% 0%, 97% 10%, 100% 15%, 100% 85%, 97% 90%, 95% 100%, 5% 100%, 3% 90%, 0% 85%, 0% 15%, 3% 10%);
+    padding: 10px 40px;
     
     background-color: rgba(247, 247, 247, 0.918); 
     /* Tip: Change the above to rgba(43, 47, 48, 0.95) if you want the Cocas slightly visible underneath! */
